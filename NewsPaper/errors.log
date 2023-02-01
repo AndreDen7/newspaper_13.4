@@ -1,0 +1,90 @@
+2023-01-31 21:02:19,745 ERROR Internal Server Error: / C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\utils\log.py (<class 'TypeError'>, TypeError("Field 'id' expected a number but got <SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x0000029E39A4E490>>."), <traceback object at 0x0000029E39A94640>)
+Traceback (most recent call last):
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\fields\__init__.py", line 2018, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'SimpleLazyObject'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\views\generic\base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\views\generic\list.py", line 174, in get
+    context = self.get_context_data()
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\NewsPaper\news\views.py", line 41, in get_context_data
+    posts_day_count = Post.objects.filter(dateCreation__gte=prev_day, author__authorUser=user).count()
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\query.py", line 1420, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\query.py", line 1438, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\query.py", line 1445, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\sql\query.py", line 1532, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\sql\query.py", line 1562, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\sql\query.py", line 1478, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\sql\query.py", line 1303, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\lookups.py", line 27, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\fields\related_lookups.py", line 166, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\fields\__init__.py", line 2020, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x0000029E39A4E490>>.
+2023-01-31 21:02:19,749 ERROR "GET / HTTP/1.1" 500 150236 C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\core\servers\basehttp.py None
+2023-01-31 21:02:26,071 ERROR Internal Server Error: /posts/ C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\utils\log.py (<class 'TypeError'>, TypeError("Field 'id' expected a number but got <SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x0000029E398DD040>>."), <traceback object at 0x0000029E398EBCC0>)
+Traceback (most recent call last):
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\fields\__init__.py", line 2018, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'SimpleLazyObject'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\views\generic\base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\views\generic\list.py", line 174, in get
+    context = self.get_context_data()
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\NewsPaper\news\views.py", line 41, in get_context_data
+    posts_day_count = Post.objects.filter(dateCreation__gte=prev_day, author__authorUser=user).count()
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\query.py", line 1420, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\query.py", line 1438, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\query.py", line 1445, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\sql\query.py", line 1532, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\sql\query.py", line 1562, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\sql\query.py", line 1478, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\sql\query.py", line 1303, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\lookups.py", line 27, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\fields\related_lookups.py", line 166, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\db\models\fields\__init__.py", line 2020, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x0000029E398DD040>>.
+2023-01-31 21:02:26,072 ERROR "GET /posts/ HTTP/1.1" 500 150300 C:\Users\WickedJunglist\PycharmProjects\pythonProject\venv\lib\site-packages\django\core\servers\basehttp.py None

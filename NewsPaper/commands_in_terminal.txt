@@ -1,0 +1,64 @@
+from news.models import *
+u1 = User.objects.create_user(username='Andrey')
+u2 = User.objects.create_user(username='Taty') 
+Author.objects.create(authorUser=u1) 
+Category.objects.create(name='Politics')
+Category.objects.create(name='News')     
+Category.objects.create(name='Animals') 
+Category.objects.create(name='Gore')  
+
+author = Author.objects.get(id=1)
+Author.objects.create(authorUser=u2) 
+Post.objects.create(author=author, categoryType='NW', title='justnews', text='sometext') 
+Post.objects.get(id=1).title
+Post.objects.create(author=author, categoryType='NW', title='moremore_shitty_news', text='bad_text') 
+Post.objects.create(author=author, categoryType='AR', title='about_it_industry', text='all_going_good') 
+Post.objects.create(author=author, categoryType='AR', title='Animals_attack', text='all_going_bad_lol') 
+ 
+Post.objects.get(id=1).postCategory.add(Category.objects.get(id=1)) 
+ Comment.objects.create(commentPost=Post.objects.get(id=1), commentUser=Author.objects.get(id=1).authorUser, text='authortext')  
+ Comment.objects.create(commentPost=Post.objects.get(id=2), commentUser=Author.objects.get(id=2).authorUser, text='helloworld') 
+ Comment.objects.create(commentPost=Post.objects.get(id=2), commentUser=Author.objects.get(id=2).authorUser, text='helloworld-again'
+  
+>>> Comment.objects.get(id=1).like()
+>>> Comment.objects.get(id=1).rating
+1
+>>> Comment.objects.get(id=1).like()
+>>> Comment.objects.get(id=1).like() 
+>>> Comment.objects.get(id=1).rating 
+3
+>>> Comment.objects.get(id=1).dislike() 
+>>> Comment.objects.get(id=1).rating    
+2
+>>> Comment.objects.get(id=1).dislike()                                                                                            
+>>> Comment.objects.get(id=1).dislike()
+>>> Comment.objects.get(id=1).dislike()
+>>> Comment.objects.get(id=1).rating    
+-1
+
+
+a = Author.objects.get(id=1) 
+a.update_rating()
+a.ratingAuthor
+-1
+> Post.objects.get(id=1).like()
+>>> a.update_rating()             
+>>> a.update_rating()
+>>> a.ratingAuthor                      
+2
+
+ a = Author.objects.order_by('-ratingAuthor')    
+>>> a
+<QuerySet [<Author: Author object (1)>, <Author: Author object (2)>]>
+
+a = Author.objects.order_by('-ratingAuthor')[:1]
+a.ratingAuthor
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'QuerySet' object has no attribute 'ratingAuthor'
+>>> for i in a:
+...     i.ratingAuthor
+...     i.authorUser.username 
+... 
+2
+'Andrey'
